@@ -25,16 +25,27 @@
 
     <Grid Padding="12" RowSpacing="8" RowDefinitions="Auto,Auto,*">
         <Border Grid.Row="0" BackgroundColor="#D6B900" Stroke="#806F00" StrokeThickness="2" Padding="12,6">
-            <Label x:Name="DisplayLabel"
-                   Text="0"
-                   TextColor="#171500"
-                   FontSize="42"
-                   FontAttributes="Bold"
-                   HorizontalTextAlignment="End"
-                   VerticalTextAlignment="Center"
-                   LineBreakMode="NoWrap"
-                   HeightRequest="72"
-                   SemanticProperties.Description="Wynik kalkulatora" />
+            <Grid>
+                <Label x:Name="DisplayLabel"
+                       Text="0"
+                       TextColor="#171500"
+                       FontSize="42"
+                       FontAttributes="Bold"
+                       HorizontalTextAlignment="End"
+                       VerticalTextAlignment="Center"
+                       LineBreakMode="NoWrap"
+                       HeightRequest="72"
+                       SemanticProperties.Description="Wynik kalkulatora" />
+
+                <Label x:Name="MemoryIndicator"
+                       Text="M"
+                       TextColor="#171500"
+                       FontSize="18"
+                       FontAttributes="Bold"
+                       IsVisible="False"
+                       HorizontalOptions="Start"
+                       VerticalOptions="Start" />
+            </Grid>
         </Border>
 
         <Grid Grid.Row="1" ColumnDefinitions="*,*,*,*" ColumnSpacing="4">

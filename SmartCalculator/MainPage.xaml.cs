@@ -6,6 +6,7 @@ namespace RetroCalculator
     {
         private decimal _firstOperand;
         private decimal _memory;
+        private bool _hasMemory;
         private string? _pendingOperator;
         private bool _waitingForOperand = true;
 
@@ -67,6 +68,7 @@ namespace RetroCalculator
             {
                 case "MC":
                     _memory = 0;
+                    _hasMemory = false;
                     break;
                 case "MR":
                     SetDisplay(_memory);
@@ -74,11 +76,15 @@ namespace RetroCalculator
                     break;
                 case "M+":
                     _memory += ParseDisplay();
+                    _hasMemory = true;
                     break;
                 case "M−":
                     _memory -= ParseDisplay();
+                    _hasMemory = true;
                     break;
             }
+
+            this.FindByName<Label>("MemoryIndicator").IsVisible = _hasMemory;
         }
 
         private void EnterDigit(string digit)
